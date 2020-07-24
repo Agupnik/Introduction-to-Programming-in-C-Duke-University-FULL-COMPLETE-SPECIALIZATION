@@ -16,15 +16,57 @@ int max (int a, int b) {
 }
 
 //Declare your rectangle structure here!
-
+typedef struct _rec{
+  int x;
+  int y;
+  int width;
+  int height;
+}rectangle;
 
 rectangle canonicalize(rectangle r) {
   //WRITE THIS FUNCTION
+  if(r.width<0){
+    r.x += r.width;
+    r.width *= -1;   
+  }
+  if(r.height<0){
+    r.y += r.height;
+    r.height *= -1;
+  }
   return r;
 }
 rectangle intersection(rectangle r1, rectangle r2) {
   //WRITE THIS FUNCTION
-  return r1;
+  rectangle ans;
+  r1 = canonicalize(r1);
+  r2 = canonicalize(r2);
+  if ((r2.y + r2.height) < r1.y || (r1.y + r1.height) < r2.y){
+    ans.height = 0;
+    //return ans;
+  }
+  else if ((r1.x + r1.width) < r2.x || (r2.x + r2.width) < r1.x){
+    ans.width = 0;
+    //return ans;
+  }
+  ans.x = max(r1.x, r2.x);
+  ans.y = max(r1.y, r2.y);
+  int toChoseWidthR1 = r1.x + r1.width;
+  int toChoseHeightR1 = r1.y + r1.height;
+  int toChoseWidthR2 = r2.x + r2.width;
+  int toChoseHeightR2 = r2.y + r2.height;
+  int minWidth = min(toChoseWidthR1, toChoseWidthR2);
+  int minHeight = min(toChoseHeightR1, toChoseHeightR2);
+  ans.width = minWidth - ans.x;
+  ans.height = minHeight - ans.y;
+  rectangle rectangle_temp = canonicalize(ans);
+  if((rectangle_temp.x == r1.x || rectangle_temp.x == r2.x) && (rectangle_temp.y == r1.y || rectangle_temp.y == r2.y)){
+    return ans;
+  }
+  else{
+    ans.height = 0;
+    ans.width = 0;
+    return ans;
+  }
 }
 
 //You should not need to modify any code below this line
