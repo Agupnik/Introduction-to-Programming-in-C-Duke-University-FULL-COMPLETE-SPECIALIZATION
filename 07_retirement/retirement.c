@@ -6,7 +6,7 @@ struct _retire_info{
   double contribution;
   double rate_of_return;
 };
-typedef _retire_info  retire_info;
+typedef struct _retire_info retire_info;
 
 double profitCount(retire_info savings, double initial){
   double percentToCount = (savings.rate_of_return/100)/12;
