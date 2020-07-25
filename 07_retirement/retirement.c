@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct _retire_info{
+struct _retire_info{
   int months;
   double contribution;
   double rate_of_return;
-}retire_info;
+};
+typedef _retire_info  retire_info;
 
 double profitCount(retire_info savings, double initial){
   double percentToCount = (savings.rate_of_return/100)/12;
