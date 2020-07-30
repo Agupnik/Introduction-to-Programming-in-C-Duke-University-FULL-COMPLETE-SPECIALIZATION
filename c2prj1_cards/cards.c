@@ -209,19 +209,19 @@ card_t card_from_num(unsigned c) {
     assr = false;
   }
   assert(assr);
-  if(c >= 0 || c <= 12)
+  if(c >= 0 && c <= 12)
     {
       temp.suit = CLUBS;
     }
-  if (c >= 13 || c <= 25)
+ else if (c >= 13 && c <= 25)
     {
       temp.suit = DIAMONDS;
     }
-  if (c >= 26 || c <= 38)
+ else if (c >= 26 && c <= 38)
     {
       temp.suit = HEARTS;
     }
-  if (c >= 39 || c <= 51)
+ else if (c >= 39 && c <= 51)
     {
       temp.suit = SPADES;
     }
