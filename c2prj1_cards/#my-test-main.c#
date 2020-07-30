@@ -1,0 +1,12 @@
+#include "cards.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+int main() {
+    card_t c;
+    c.value = 15;
+    c.suit = 2;
+    assert_card_valid(c);
+    printf("%d\n", c.value);
+  return 0;
+}
