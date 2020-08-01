@@ -8,7 +8,7 @@ size_t maxSeq(int * array, size_t n){
   int seq = 1;
 
   int seq_temp = 0;
-  int num = array[0];
+  long num = array[0];
   for(size_t i = 1; i < n; i++){
     if(array[i] > num){
       seq++;
