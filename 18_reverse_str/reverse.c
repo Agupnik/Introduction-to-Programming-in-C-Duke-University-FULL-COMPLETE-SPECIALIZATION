@@ -9,7 +9,7 @@ void reverse(char * str) {
     return;
   }
   char c_temp;
-  while (len2 < len) {
+  while (len2 <= len) {
     c_temp = str[len2];
     str[len2] = str[len];
     str[len] = c_temp;
