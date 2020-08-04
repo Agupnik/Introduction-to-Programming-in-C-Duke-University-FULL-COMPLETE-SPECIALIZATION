@@ -9,7 +9,7 @@ void reverse(char * str) {
   }
   int len_temp = strlen(str);
   char str_copy[len];
-  strcpy(str_copy, str);
+  strncpy(str_copy, str, len);
   for(int i = 0; i < len_temp; i++){
     str[i]=str_copy[len-1];
     len -= 1;
