@@ -8,8 +8,8 @@ void reverse(char * str) {
     return;
   }
   int len_temp = strlen(str);
-  char str_copy[len];
-  strncpy(str_copy, str, len);
+  char str_copy[len+1];
+  strncpy(str_copy, str, len+1);
   for(int i = 0; i < len_temp; i++){
     str[i]=str_copy[len-1];
     len -= 1;
