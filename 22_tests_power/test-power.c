@@ -46,6 +46,6 @@ int main()
   if(power(-2, -4) != 0){
     return EXIT_FAILURE;
   }
-
+  printf("Success!\n");
   return EXIT_SUCCESS;
 }

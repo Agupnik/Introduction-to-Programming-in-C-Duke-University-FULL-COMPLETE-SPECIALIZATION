@@ -1,0 +1,2 @@
+prg: rotate.c
+        gcc -std=gnu99 -pedantic -Wall rotate.c read-matrix.o
