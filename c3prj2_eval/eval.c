@@ -14,18 +14,29 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
 }
 
 suit_t flush_suit(deck_t * hand) {
-  int flush_count = 1;
-  for(size_t i = 0; i < (*hand).n_cards; i++){
-    for(size_t j = 0; j < (*hand).n_cards; j++){
-      if((*hand).cards[i]->suit == (*hand).cards[j]->suit){
-	flush_count++;
-      }
+  card_t** card = hand->cards;
+  card_t card1;
+  card1 = **(card + 0);
+  int s, h, d, c;
+  s = h = d = c = 0;
+
+
+  for (size_t i = 0; i < (hand->n_cards); i++) {
+    card1 = **(card + i);
+    switch (card1.suit) {
+    case SPADES: {s++;  break; }
+    case HEARTS: { h++;  break; }
+    case DIAMONDS: { d++;  break; }
+    case CLUBS: {c++; break; }
+    case NUM_SUITS: break;
+
     }
-    if(flush_count >= 5){
-      return (*hand).cards[i]->suit;
-    }
-    flush_count = 1;
   }
+
+  if (s >= 5) return SPADES;
+  if (h >= 5) return HEARTS;
+  if (d >= 5) return DIAMONDS;
+  if (c >= 5) return CLUBS;
   return NUM_SUITS;
 }
 
