@@ -2,58 +2,43 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int most_common(FILE * f)
-{
-  char frequency[26];
-  int ch = 0;
-
-  for (ch = 0; ch < 26; ch++)
-    frequency[ch] = 0;
-
-  while(1){
-    ch = fgetc(f);
-    if (isalpha(ch)){
-    if (ch == EOF) break;
-
-    if ('a' <= ch && ch  <= 'z')
-      frequency[ch - 'a']++;
-    else if ('A' <= ch && ch <= 'Z')
-      frequency[ch - 'A']++;}
-  }
-
-  int maxCount = 0;
-  int maxChar = 0;
-  for (int i = 0; i <= 26; ++i)
-    {
-      if (frequency[i] > maxCount)
-	{
-	  maxCount = frequency[i];
-	  maxChar = i;
-	}
+int find_max(FILE * f){
+  int array[255] = {0};
+  int c;
+  while ((c = fgetc(f)) != EOF){
+    if (isalpha(c)){
+      array[c]++;
     }
-  return maxChar + 'A';
+  }
+  int max = 0;
+  int let = 0;
+  for(int i = 0; i < 255; i++){
+    if(array[i] > max){
+      max = array[i];
+      let = i;
+    }
+  }
+  return let;
 }
 
 int dencrypt(FILE * f) {
-  int let;
-  let = most_common(f);
-  if(let == 'e'){
-    return 0;
-  }
-  if(let > 'e'){
-    return ((let%25)-1);
-  }
-  if(let < 'e'){
-    if(let%25 == 0){
-      return 25;
-    }
-    return (let%25);
-
-  }
+  int let = find_max(f);
+if(let == 'e'){
   return 0;
+ }
+if(let > 'e'){
+  return ((let%25)-1);
+ }
+if(let < 'e'){
+  if(let%25 == 0){
+    return 25;
+  }
+  return (let%25);
+
+ }
+ return 0;
 }
       
-
 int main(int argc, char ** argv) {
   if (argc != 2) {
     fprintf(stderr,"Usage: encrypt key inputFileName\n");
