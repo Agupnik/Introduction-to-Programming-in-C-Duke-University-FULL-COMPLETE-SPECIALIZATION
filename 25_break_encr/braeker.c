@@ -42,6 +42,10 @@ int dencrypt(FILE * f, FILE * f2) {
 }
 
 int main(int argc, char ** argv) {
+  if (argc != 2) {
+    fprintf(stderr,"Usage: encrypt key inputFileName\n");
+    return EXIT_FAILURE;
+  }
   FILE * f = fopen(argv[1], "r");
   FILE * f2 = fopen(argv[1], "r");
   if (f == NULL || f2 == NULL) {
