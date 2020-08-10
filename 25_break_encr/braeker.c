@@ -2,29 +2,41 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int dencrypt(FILE * f, FILE * f2) {
-  int commonn = 0;
-  int c;
-  int c2;
-  int let;
-  while ((c = fgetc(f)) != EOF) {
-    int common = 0;
-    while((c2 = fgetc(f2)) != EOF){
-      if (isalpha(c) && isalpha(c2)) {
-	c = tolower(c);
-	c2 = tolower(c2);
-	if(c == c2){
-	  common++;
-	}
-      }
-    }
-    if(commonn < common){
-      commonn = common;
-      let = c;
-    }
-    common = 0;
-    rewind(f2);
+int most_common(FILE * f)
+{
+  char frequency[26];
+  int ch = 0;
+
+  for (ch = 0; ch < 26; ch++)
+    frequency[ch] = 0;
+
+  while(1){
+    ch = fgetc(f);
+    if (isalpha(ch)){
+    if (ch == EOF) break;
+
+    if ('a' <= ch && ch  <= 'z')
+      frequency[ch - 'a']++;
+    else if ('A' <= ch && ch <= 'Z')
+      frequency[ch - 'A']++;}
   }
+
+  int maxCount = 0;
+  int maxChar = 0;
+  for (int i = 0; i <= 26; ++i)
+    {
+      if (frequency[i] > maxCount)
+	{
+	  maxCount = frequency[i];
+	  maxChar = i;
+	}
+    }
+  return maxChar + 'A';
+}
+
+int dencrypt(FILE * f) {
+  int let;
+  let = most_common(f);
   if(let == 'e'){
     return 0;
   }
@@ -40,6 +52,7 @@ int dencrypt(FILE * f, FILE * f2) {
   }
   return 0;
 }
+      
 
 int main(int argc, char ** argv) {
   if (argc != 2) {
@@ -47,14 +60,13 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   FILE * f = fopen(argv[1], "r");
-  FILE * f2 = fopen(argv[1], "r");
-  if (f == NULL || f2 == NULL) {
+  if (f == NULL) {
     perror("Could not open file");
     return EXIT_FAILURE;
   }
-  int key = dencrypt(f, f2);
+  int key = dencrypt(f);
   fprintf( stdout, "%d\n", key);
-  if (fclose(f) != 0 || fclose(f2) != 0) {
+  if (fclose(f) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
   }
