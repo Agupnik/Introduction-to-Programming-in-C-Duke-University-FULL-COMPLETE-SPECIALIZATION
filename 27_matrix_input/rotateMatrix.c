@@ -42,6 +42,16 @@ int main(int argc, char** argv) {
     return EXIT_FAILURE;
   }
   rewind(f);
+  while ((c = fgetc(f)) != EOF){
+    elemsum++;
+  }
+  rewind(f);
+  if(elemsum != 110){
+    fprintf(stderr, "Invalid matrix\n");
+    return EXIT_FAILURE;
+  }
+  elemsum = 0;
+  printf("%d\n", elemsum); 
   while ((c = fgetc(f)) != EOF) {
     if (c < 10 || (c > 10 && c < 32) || c > 255) {
       fprintf(stderr, "Invalid char\n");
@@ -77,7 +87,7 @@ int main(int argc, char** argv) {
 	}
      printf("\n");
   }
-  printf("\n");
+  //printf("\n");
   fclose(f);
   //if (fclose(f) != 0) {
   // perror("Failed to close the input file!");
