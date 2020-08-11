@@ -51,7 +51,7 @@ int main(int argc, char** argv) {
     return EXIT_FAILURE;
   }
   elemsum = 0;
-  printf("%d\n", elemsum); 
+  //printf("%d\n", elemsum); 
   while ((c = fgetc(f)) != EOF) {
     if (c < 10 || (c > 10 && c < 32) || c > 255) {
       fprintf(stderr, "Invalid char\n");
