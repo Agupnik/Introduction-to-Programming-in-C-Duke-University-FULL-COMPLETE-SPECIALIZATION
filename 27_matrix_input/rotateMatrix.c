@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#include <assert.h>
 
 void rotate(char matrix[10][10]){
   char matrix2[10][10];
@@ -57,18 +58,9 @@ int main(int argc, char** argv) {
       continue;
     }
     else if(c != 10){
-      if(elemsum <= 100){
-	matrix[start_pos][ten_chars] = c;
-	ten_chars++;
-	//printf("%c\n", c);
-	//printf("%d\n", start_pos);
-	//printf("%d\n", ten_chars);
-      }
-      else{
-	fprintf(stderr, "Invalid matrix\n");
-	//printf("%d\n", elemsum);
-	return EXIT_FAILURE;
-      }
+      assert(elemsum <= 100);
+      matrix[start_pos][ten_chars] = c;
+      ten_chars++;
     }
     //printf("%d\n", start_pos);
   }
