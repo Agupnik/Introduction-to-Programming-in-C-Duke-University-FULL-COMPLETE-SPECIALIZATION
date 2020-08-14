@@ -18,7 +18,6 @@ kvarray_t * readKVs(const char * fname) {
   kvarray->size = 0;
   char * line = NULL;
   size_t sz = 0;
-  int count = 1;
   int elem = 0;
   while(getline(&line, &sz, f) != -1){
     if(line[0] == '\n'){
