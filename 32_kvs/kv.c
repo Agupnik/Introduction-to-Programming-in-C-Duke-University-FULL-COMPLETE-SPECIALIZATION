@@ -33,6 +33,7 @@ kvarray_t * readKVs(const char * fname) {
   }
   kvarray->size = elem;
   free(line);
+  fclose(f);
   return kvarray;
 }
 
