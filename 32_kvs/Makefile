@@ -1,4 +1,4 @@
-CFLAGS=-Wall -Werror -std=gnu99 -pedantic -ggdb3
+CFLAGS= -std=gnu99 -ggdb3
 OBJS=kv_test.o kv.o
 PROGRAM=kv_test
 
