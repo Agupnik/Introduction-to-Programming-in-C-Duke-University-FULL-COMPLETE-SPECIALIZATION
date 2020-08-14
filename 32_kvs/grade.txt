@@ -1,0 +1,10 @@
+Grading at Fri Aug 14 18:34:19 UTC 2020
+Attempting to compile:
+kv.c: In function ‘readKVs’:
+kv.c:21:7: error: unused variable ‘count’ [-Werror=unused-variable]
+   int count = 1;
+       ^
+cc1: all warnings being treated as errors
+The code did not compile!
+
+Overall Grade: F
