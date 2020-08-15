@@ -52,7 +52,7 @@ void printCounts(counts_t * c, FILE * outFile) {
     fprintf (outFile, "%s: %zu\n", c->c[i]->name, c->c[i]->count);
   }
   if(c->count_unknown != 0){
-    fprintf (outFile, "<unknown> : %zu\n", c->count_unknown);
+    fprintf (outFile, "<unknown>: %zu\n", c->count_unknown);
   }
 }
 
