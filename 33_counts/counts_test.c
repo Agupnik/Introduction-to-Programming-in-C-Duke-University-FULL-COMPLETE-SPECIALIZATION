@@ -5,11 +5,13 @@
 
 #define NUM_TESTS 12
 int main(void) {
-  char * testData[NUM_TESTS] = {"apple", "banana", NULL,"apple",
+  char * testData[24] = {"apple", "banana", NULL,"apple",
+				"frog","sword","bear",NULL,
+				"frog","apple", "zebra", "knight", "apple", "banana", NULL,"apple",
 				"frog","sword","bear",NULL,
 				"frog","apple", "zebra", "knight"};
   counts_t * testCounts= createCounts();
-  for(int i =0; i < NUM_TESTS; i++) {
+  for(int i =0; i < 24; i++) {
     addCount(testCounts,testData[i]);
   }
   printCounts(testCounts, stdout);
