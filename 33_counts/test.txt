@@ -1,8 +1,9 @@
-apple: 6
+apple: 5
 banana: 2
 frog: 4
 sword: 2
 bear: 2
 zebra: 2
 knight: 2
+apple mas: 1
 <unknown> : 4

@@ -16,8 +16,6 @@ void addNewValue(counts_t * c, const char * name){
   if(name != NULL){
     c->c = realloc(c->c, (((c->count_known)+2) * sizeof(*c->c)));
     c->c[c->count_known] = malloc(sizeof(*c->c[c->count_known]));
-    //c->c[c->count_known]->name = (char *)name;
-    //strcpy(c->c[c->count_known]->name, (char *)name);
     c->c[c->count_known]->name = name; 
     c->c[c->count_known]->count = 1;
     (c->count_known)++;
@@ -30,9 +28,6 @@ void addNewValue(counts_t * c, const char * name){
 }
 
 void addCount(counts_t * c, const char * name) {
-  //if(c->count_known == 0){
-  //addNewValue(c, name);
-  //}
   for(int i = 0; i < c->count_known; i++){
     if(c->c[i]->name == name){
       (c->c[i]->count)++;
@@ -43,22 +38,15 @@ void addCount(counts_t * c, const char * name) {
 }
 
 void printCounts(counts_t * c, FILE * outFile) {
-  //fprintf (outFile, "\n");
   if(outFile == NULL){
     return;
   }
   for(int i = 0; i < c->count_known; i++){
-    fprintf (outFile, "%s: %d \n", c->c[i]->name, c->c[i]->count);
-    //printf ("%s: %d", c->c[i]->name, c->c[i]->count);
-    //fprintf (outFile, "\n");
-    //printf ("\n");
+    fprintf (outFile, "%s: %d\n", c->c[i]->name, c->c[i]->count);
   }
   if(c->count_unknown != 0){
-    fprintf (outFile, "<unknown> : %d \n", c->count_unknown);
-    //printf ("<unknown> : %d\n", c->count_unknown);
-    //fprintf (outFile, "\n");
+    fprintf (outFile, "<unknown> : %d\n", c->count_unknown);
   }
-  //fprintf (outFile, "\n");
 }
 
 void freeCounts(counts_t * c) {

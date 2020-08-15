@@ -9,15 +9,15 @@ int main(void) {
 				"frog","sword","bear",NULL,
 				"frog","apple", "zebra", "knight", "apple", "banana", NULL,"apple",
 				"frog","sword","bear",NULL,
-				"frog","apple", "zebra", "knight"};
-  FILE * f = fopen("test.txt", "w");
+				"frog","apple mas", "zebra", "knight"};
+  //FILE * f = fopen("test.txt", "w");
   
   counts_t * testCounts= createCounts();
   for(int i =0; i < 24; i++) {
     addCount(testCounts,testData[i]);
   }
-  printCounts(testCounts, f);
-  fclose(f);
+  printCounts(testCounts, stdout);
+  //fclose(f);
   freeCounts(testCounts);
   return EXIT_SUCCESS;
 }
