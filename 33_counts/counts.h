@@ -1,7 +1,7 @@
 #ifndef __COUNTS_H__
 #define __COUNTS_H__
 struct _one_count_t {
-  char * name;
+  const char * name;
   int  count;
 
 };

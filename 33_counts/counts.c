@@ -10,16 +10,16 @@ counts_t * createCounts(void) {
   count->count_unknown = 0;
   return count;
 }
-//comments
+
 
 void addNewValue(counts_t * c, const char * name){
   if(name != NULL){
     c->c = realloc(c->c, (((c->count_known)+1) * sizeof(*c->c)));
     c->c[c->count_known] = malloc(sizeof(*c->c[c->count_known]));
-    //c->c[c->count_known]->count[0] = malloc(sizeof(int));
-    c->c[c->count_known]->name = (char *)name;
+    //c->c[c->count_known]->name = (char *)name;
+    //strcpy(c->c[c->count_known]->name, (char *)name);
+    c->c[c->count_known]->name = name; 
     c->c[c->count_known]->count = 1;
-    //(c->c[c->count_known]->count)++;
     (c->count_known)++;
     return;
   }
