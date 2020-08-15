@@ -14,7 +14,7 @@ counts_t * createCounts(void) {
 
 void addNewValue(counts_t * c, const char * name){
   if(name != NULL){
-    c->c = realloc(c->c, (((c->count_known)+1) * sizeof(*c->c)));
+    c->c = realloc(c->c, (((c->count_known)+2) * sizeof(*c->c)));
     c->c[c->count_known] = malloc(sizeof(*c->c[c->count_known]));
     //c->c[c->count_known]->name = (char *)name;
     //strcpy(c->c[c->count_known]->name, (char *)name);
