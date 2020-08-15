@@ -52,6 +52,7 @@ void printCounts(counts_t * c, FILE * outFile) {
   if(c->count_unknown != 0){
     fprintf (outFile, "<unknown> : %d", c->count_unknown);
     //printf ("<unknown> : %zu", c->count_unknown);
+    fprintf (outFile, "\n");
   }
   //fprintf (outFile, "\n");
 }
