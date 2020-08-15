@@ -20,7 +20,7 @@ void addNewValue(counts_t * c, const char * name){
     c->c[value]->name = name; 
     c->c[value]->count = 1;
     value++;
-    c->count_known = value
+    c->count_known = value;
     return;
   }
   else{
