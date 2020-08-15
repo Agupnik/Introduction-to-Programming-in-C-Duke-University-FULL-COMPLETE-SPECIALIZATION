@@ -48,13 +48,13 @@ void printCounts(counts_t * c, FILE * outFile) {
     return;
   }
   for(int i = 0; i < c->count_known; i++){
-    fprintf (outFile, "%s: %d\n", c->c[i]->name, c->c[i]->count);
+    fprintf (outFile, "%s: %d \n", c->c[i]->name, c->c[i]->count);
     //printf ("%s: %d", c->c[i]->name, c->c[i]->count);
     //fprintf (outFile, "\n");
     //printf ("\n");
   }
   if(c->count_unknown != 0){
-    fprintf (outFile, "<unknown> : %d\n", c->count_unknown);
+    fprintf (outFile, "<unknown> : %d \n", c->count_unknown);
     //printf ("<unknown> : %d\n", c->count_unknown);
     //fprintf (outFile, "\n");
   }
