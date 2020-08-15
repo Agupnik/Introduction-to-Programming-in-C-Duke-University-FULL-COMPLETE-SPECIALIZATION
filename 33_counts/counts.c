@@ -13,12 +13,14 @@ counts_t * createCounts(void) {
 
 
 void addNewValue(counts_t * c, const char * name){
+  int value = c->count_known;
   if(name != NULL){
-    c->c = realloc(c->c, (((c->count_known)+2) * sizeof(*c->c)));
-    c->c[c->count_known] = malloc(sizeof(*c->c[c->count_known]));
-    c->c[c->count_known]->name = name; 
-    c->c[c->count_known]->count = 1;
-    (c->count_known)++;
+    c->c = realloc(c->c, (((value)+1) * sizeof(*c->c)));
+    c->c[value] = malloc(sizeof(*c->c[value]));
+    c->c[value]->name = name; 
+    c->c[value]->count = 1;
+    value++;
+    c->count_known = value
     return;
   }
   else{

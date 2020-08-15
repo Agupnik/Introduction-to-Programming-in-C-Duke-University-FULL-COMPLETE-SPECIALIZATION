@@ -5,7 +5,7 @@
 
 #define NUM_TESTS 12
 int main(void) {
-  char * testData[24] = {"apple", "banana", NULL,"apple",
+  char * testData[24] = {"Apple", "banana", NULL,"apple",
 				"frog","sword","bear",NULL,
 				"frog","apple", "zebra", "knight", "apple", "banana", NULL,"apple",
 				"frog","sword","bear",NULL,
