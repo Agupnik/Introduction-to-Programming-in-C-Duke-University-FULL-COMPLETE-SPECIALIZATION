@@ -4,6 +4,7 @@
 #include "counts.h"
 
 #define NUM_TESTS 12
+
 int main(void) {
   char * testData[NUM_TESTS] = {"apple", "banana", NULL,"apple",
 				"frog","sword","bear",NULL,
