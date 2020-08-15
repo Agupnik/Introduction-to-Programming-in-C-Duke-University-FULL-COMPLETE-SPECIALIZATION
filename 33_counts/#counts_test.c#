@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "counts.h"
+
+void addCount(counts_t * c, const char * name) {
+  for(int i = 0; i < c->count_known; i++){
+    const char * x = c->c[i]->name;
+    if(strcmp(x, name) == 0){
+      (c->c[i]->count)++;
+      return;
+    }
+  }
+  addNewValue(c, name);
+}
+
+#define NUM_TESTS 12
+int main(void) {
+  char * testData[24] = {"Apple", "banana", NULL,"apple",
+				"frog","sword","bear",NULL,
+				"frog","apple", "zebra", "knight", "apple", "banana", NULL,"apple",
+				"frog","sword","bear",NULL,
+				"frog","apple mas", "zebra", "knight"};
+  //FILE * f = fopen("test.txt", "w");
+  
+  counts_t * testCounts= createCounts();
+  for(int i =0; i < 24; i++) {
+    addCount(testCounts,testData[i]);
+  }
+  printCounts(testCounts, stdout);
+  //fclose(f);
+  freeCounts(testCounts);
+  return EXIT_SUCCESS;
+}
