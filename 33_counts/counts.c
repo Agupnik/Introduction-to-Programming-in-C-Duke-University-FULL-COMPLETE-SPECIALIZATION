@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "counts.h"
+
 counts_t * createCounts(void) {
   counts_t * count = malloc(sizeof(*count));
   count->c = malloc(sizeof(*count->c));
@@ -49,10 +50,14 @@ void addCount(counts_t * c, const char * name) {
 
 void printCounts(counts_t * c, FILE * outFile) {
   for(int i = 0; i < c->count_known; i++){
-    fprintf (outFile, "%s: %zu\n", c->c[i]->name, c->c[i]->count);
+    //fprintf (outFile, "%s: %zu", c->c[i]->name, c->c[i]->count);
+    printf ("%s: %zu", c->c[i]->name, c->c[i]->count);
+    //fprintf (outFile, "\n");
+    printf ("\n");
   }
   if(c->count_unknown != 0){
-    fprintf (outFile, "<unknown> : %zu\n", c->count_unknown);
+    //fprintf (outFile, "<unknown> : %zu", c->count_unknown);
+    printf ("<unknown> : %zu", c->count_unknown);
   }
 }
 
