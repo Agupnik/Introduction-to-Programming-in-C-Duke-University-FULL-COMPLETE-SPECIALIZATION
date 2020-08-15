@@ -10,6 +10,7 @@ counts_t * createCounts(void) {
   count->count_unknown = 0;
   return count;
 }
+//comments
 
 void addNewValue(counts_t * c, const char * name){
   if(name != NULL){
