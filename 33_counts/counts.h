@@ -2,15 +2,15 @@
 #define __COUNTS_H__
 struct _one_count_t {
   char * name;
-  size_t count;
+  int  count;
 
 };
 typedef struct _one_count_t one_count_t;
 
 struct _counts_t {
   one_count_t ** c;
-  size_t count_known;
-  size_t count_unknown;
+  int count_known;
+  int count_unknown;
 };
 typedef struct _counts_t counts_t;
 
