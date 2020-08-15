@@ -43,7 +43,7 @@ void addCount(counts_t * c, const char * name) {
 }
 
 void printCounts(counts_t * c, FILE * outFile) {
-  fprintf (outFile, "\n");
+  //fprintf (outFile, "\n");
   if(outFile == NULL){
     return;
   }
@@ -54,11 +54,11 @@ void printCounts(counts_t * c, FILE * outFile) {
     //printf ("\n");
   }
   if(c->count_unknown != 0){
-    //fprintf (outFile, "<unknown> : %d", c->count_unknown);
-    printf ("<unknown> : %d\n", c->count_unknown);
+    fprintf (outFile, "<unknown> : %d\n", c->count_unknown);
+    //printf ("<unknown> : %d\n", c->count_unknown);
     //fprintf (outFile, "\n");
   }
-  fprintf (outFile, "\n");
+  //fprintf (outFile, "\n");
 }
 
 void freeCounts(counts_t * c) {

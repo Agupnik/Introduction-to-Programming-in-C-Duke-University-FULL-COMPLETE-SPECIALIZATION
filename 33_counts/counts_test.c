@@ -10,11 +10,14 @@ int main(void) {
 				"frog","apple", "zebra", "knight", "apple", "banana", NULL,"apple",
 				"frog","sword","bear",NULL,
 				"frog","apple", "zebra", "knight"};
+  FILE * f = fopen("test.txt", "w");
+  
   counts_t * testCounts= createCounts();
   for(int i =0; i < 24; i++) {
     addCount(testCounts,testData[i]);
   }
-  printCounts(testCounts, stdout);
+  printCounts(testCounts, f);
+  fclose(f);
   freeCounts(testCounts);
   return EXIT_SUCCESS;
 }
